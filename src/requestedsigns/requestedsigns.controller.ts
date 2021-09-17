@@ -19,7 +19,7 @@ export class RequestedSignsController {
   }
     
   @Post()
-  createProduct(@Body() product:  RequestedDTO ): Promise<RequestedInterface> {
+  createProduct(@Body() product:   RequestedInterface  ): Promise<RequestedInterface> {
     return this.requestedService.Create(product);
   }
 
@@ -32,7 +32,7 @@ export class RequestedSignsController {
 
 
   @Put(':id')
-  updateProduct(@Param('id') id, @Body() product:  RequestedDTO ): Promise<RequestedInterface>{
+  updateProduct(@Param('id') id, @Body() product: RequestedInterface ): Promise<RequestedInterface>{
       return this.requestedService.update(id, product);
   }
 

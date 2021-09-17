@@ -23,8 +23,8 @@ export class RequestedService {
         return await this.RequesteModel.find();
       }
       
-      async Create(blacklistedUsers: RequestedInterface): Promise<RequestedInterface>{
-        const newProduct = new this.RequesteModel(blacklistedUsers);
+      async Create(requestedUsers: RequestedInterface): Promise<RequestedInterface>{
+        const newProduct = new this.RequesteModel(requestedUsers);
         return await newProduct.save();
       }
       
