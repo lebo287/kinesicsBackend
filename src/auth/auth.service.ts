@@ -74,6 +74,10 @@ async findApi(id: boolean): Promise<User[]>{
   return await this.userModel.find({blacklisted:id });
 }
 
+async update(id: string, blacklisted: User): Promise<User>{
+  return await this.userModel.findByIdAndUpdate(id, blacklisted);
+}
+
 }
 
 

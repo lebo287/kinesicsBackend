@@ -45,14 +45,16 @@ export class AuthController {
 
 
 
-  @Get(':id')
-  find(@Param('id') id): Promise<User[]>{
-     
-           return  this.authService.findApi(id);
+  @Get('status/:status')
+  find(@Param('status') status): Promise<User[]>{
+           return  this.authService.findApi(status);
  
   }
 
  
-
+  @Put(':id')
+  updateProduct(@Param('id') id, @Body() user: User): Promise<User>{
+      return this.authService.update(id,user);
+  }
   
 }

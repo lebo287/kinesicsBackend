@@ -21,7 +21,6 @@ export class BlacklistedTController {
     find(@Param('id') id): Promise<BlacklistedInterface>{
        
              return this.blacklistedService.find(id);
-   
     }
   
   
