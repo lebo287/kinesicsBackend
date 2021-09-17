@@ -9,7 +9,7 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 
 const uri = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/BlacklistedUsers';
-const uri1 = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/Words';
+
 
 
 
@@ -20,7 +20,7 @@ const uri1 = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/Words';
       useUnifiedTopology: true,
       useCreateIndex: true,
     }),
-    MongooseModule.forRoot(uri1),
+  ,
     AuthModule],
   controllers: [AppController, AuthController],
   providers: [AppService],

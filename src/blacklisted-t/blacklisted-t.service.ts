@@ -30,14 +30,16 @@ export class BlacklistedTService {
       }
       
       async update(id: string, product: BlacklistedInterface): Promise<BlacklistedInterface>{
-              
-        return await this.blacklistedModel.findByIdAndUpdate(id, product, { new: true});
+        return await this.blacklistedModel.findByIdAndUpdate(id, product);
       }
       
       async delete(id: string): Promise<BlacklistedInterface>{
         return await this.blacklistedModel.findByIdAndRemove(id);
       }
       
+      async blacklistedUsers(): Promise<BlacklistedInterface[]>{
+        return await this.blacklistedModel.find({blacklisted:true });
+      }
       
       }
       
