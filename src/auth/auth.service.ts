@@ -70,8 +70,8 @@ export class AuthService {
 
 
 
-async findApi(id: string): Promise<User[]>{
-  return await this.userModel.find({email:id });
+async findApi(id: boolean): Promise<User[]>{
+  return await this.userModel.find({blacklisted:id });
 }
 
 }
