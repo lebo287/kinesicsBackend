@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
 
-import { RequestedInterface } from './interface/requested.interface';
+import { Requested } from './interface/requested.interface';
 
 @Injectable()
 export class RequestedService {
@@ -12,32 +12,32 @@ export class RequestedService {
 
 
 
-    constructor(@InjectModel('Requested') private readonly RequesteModel:Model<RequestedInterface>)
+    constructor(@InjectModel('Requested') private readonly RequesteModel:Model<Requested>)
     {
     
     }
     
 
-    async findAll(): Promise<RequestedInterface[]>{
+    async findAll(): Promise<Requested[]>{
   
         return await this.RequesteModel.find();
       }
       
-      async Create(requestedUsers: RequestedInterface): Promise<RequestedInterface>{
+      async Create(requestedUsers: Requested): Promise<Requested>{
         const newProduct = new this.RequesteModel(requestedUsers);
         return await newProduct.save();
       }
       
-      async find(id: string): Promise<RequestedInterface>{
+      async find(id: string): Promise<Requested>{
         return await this.RequesteModel.findOne({_id:id });
       }
       
-      async update(id: string, product: RequestedInterface ): Promise<RequestedInterface>{
+      async update(id: string, product: Requested): Promise<Requested>{
               
         return await this.RequesteModel.findByIdAndUpdate(id, product, { new: true});
       }
       
-      async delete(id: string): Promise<RequestedInterface>{
+      async delete(id: string): Promise<Requested>{
         return await this.RequesteModel.findByIdAndRemove(id);
       }
 }

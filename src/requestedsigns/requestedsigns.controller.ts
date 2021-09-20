@@ -1,9 +1,8 @@
 import {Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { RequestedDTO } from './dto/requested.dto';
-import {RequestedInterface} from './interface/requested.interface';
+import {Requested} from './interface/requested.interface';
 import { RequestedService } from './requested.service';
-import { InjectModel } from '@nestjs/mongoose';
-import { Model } from 'mongoose';
+
 
 
 
@@ -12,19 +11,22 @@ export class RequestedSignsController {
 
 
 
-  constructor(private readonly requestedService:RequestedService) { }
+  constructor(private readonly requestedService:RequestedService) {}
+
   @Get()
-  findAll(): Promise<RequestedInterface[]> {
+
+  findAll(): Promise<Requested[]> {
     return this.requestedService.findAll();
   }
     
   @Post()
-  createProduct(@Body() product:   RequestedInterface  ): Promise<RequestedInterface> {
-    return this.requestedService.Create(product);
+
+  createWords(@Body() words:   Requested): Promise<Requested> {
+    return this.requestedService.Create(words);
   }
 
   @Get(':id')
-  find(@Param('id') id): Promise<RequestedInterface>{
+  find(@Param('id') id): Promise<Requested>{
      
            return this.requestedService.find(id);
  
@@ -32,12 +34,12 @@ export class RequestedSignsController {
 
 
   @Put(':id')
-  updateProduct(@Param('id') id, @Body() product: RequestedInterface ): Promise<RequestedInterface>{
-      return this.requestedService.update(id, product);
+  updateProduct(@Param('id') id, @Body() words: Requested ): Promise<Requested>{
+      return this.requestedService.update(id, words);
   }
 
   @Delete(':id')
-  deleteProduct(@Param('id') id): Promise<RequestedInterface>{
+  deleteProduct(@Param('id') id): Promise<Requested>{
       return this.requestedService.delete(id);
   }
  

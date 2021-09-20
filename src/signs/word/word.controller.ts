@@ -1,7 +1,6 @@
 
 import {Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'; 
 import { Word } from './interfaceWord/word.interface';
-import { wordSchema } from './schema/word.schema';
 import { WordService } from './wordservice/word.service';
 import { wordDTO } from './wordDTO/word.dto';
 
@@ -33,7 +32,7 @@ return this.wordService.find(id);
 
 @Post() 
 
-createWord(@Body() word: wordDTO): Promise<Word > 
+createWord(@Body() word: wordDTO): Promise<Word> 
 
 { 
 

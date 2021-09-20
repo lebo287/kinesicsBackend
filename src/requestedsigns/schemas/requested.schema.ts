@@ -2,8 +2,7 @@ import * as mongoose from 'mongoose';
 
 
 export const RequestedSchema = new mongoose.Schema({
-    uuid: String,
     word: String,
-    pic_gif:String,
+    gif:String,
     approved: Boolean,
 })
