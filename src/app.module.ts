@@ -8,7 +8,7 @@ import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { RequestedsignsModule } from './requestedsigns/requestedsigns.module';
 
-const uri = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/BlacklistedUsers';
+const uri = 'mongodb+srv://Kat:Commula@cluster0.nzqb8.mongodb.net/SignLanguage?retryWrites=true&w=majority';
 
 
 
