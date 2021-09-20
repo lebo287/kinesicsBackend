@@ -7,6 +7,7 @@ import { WordModule } from './signs/word/word.module';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
 import { RequestedsignsModule } from './requestedsigns/requestedsigns.module';
+import { MailModule } from './mail/mail/mail.module';
 
 const uri = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/BlacklistedUsers';
 
@@ -22,7 +23,7 @@ const uri = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/BlacklistedUse
       useCreateIndex: true,
     }),
   
-    AuthModule],
+    AuthModule, MailModule],
   controllers: [AppController, AuthController],
   providers: [AppService],
 })
