@@ -43,18 +43,27 @@ export class AuthController {
     return users
   }
 
+  @Get(':id')
+  findById(@Param('id') id): Promise<User>{
+     
+           return this.authService.findById(id);
+ 
+  }
 
 
   @Get('status/:status')
   find(@Param('status') status): Promise<User[]>{
            return  this.authService.findApi(status);
- 
   }
+
+
 
  
   @Put(':id')
-  updateProduct(@Param('id') id, @Body() user: User): Promise<User>{
-      return this.authService.update(id,user);
+  updateProduct(@Param('id') id, @Body('blacklisted') blacklisted: any): Promise<User>{  
+      return this.authService.update(id, {blacklisted: blacklisted});
   }
+
+
   
 }

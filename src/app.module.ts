@@ -21,7 +21,7 @@ const uri = 'mongodb+srv://cossa:12345@cluster0.krz1i.mongodb.net/BlacklistedUse
       useUnifiedTopology: true,
       useCreateIndex: true,
     }),
-  ,
+  
     AuthModule],
   controllers: [AppController, AuthController],
   providers: [AppService],

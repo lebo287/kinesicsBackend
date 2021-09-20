@@ -51,6 +51,11 @@ export class AuthService {
     };
   }
 
+
+
+
+
+
   async validateUser(username: string, pass: string): Promise<User> {
     const user = await this.userModel.findOne({ username });
 
@@ -67,15 +72,18 @@ export class AuthService {
     return null;
   }
 
-
+  async findById(id: string): Promise<User>{
+    return await this.userModel.findOne({_id:id });
+}
 
 
 async findApi(id: boolean): Promise<User[]>{
   return await this.userModel.find({blacklisted:id });
 }
 
-async update(id: string, blacklisted: User): Promise<User>{
-  return await this.userModel.findByIdAndUpdate(id, blacklisted);
+async update(id: string, user: any): Promise<User>{
+  
+  return await this.userModel.findByIdAndUpdate(id, user);
 }
 
 }
