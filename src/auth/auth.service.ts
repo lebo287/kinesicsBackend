@@ -48,6 +48,8 @@ export class AuthService {
     const payload = { username: user.username,sub: user._id,pssword: user.password,blacklisted:user.blacklisted};
     return {
       accessToken: this.jwtService.sign(payload),
+     username:user.username,
+     
     };
   }
 
