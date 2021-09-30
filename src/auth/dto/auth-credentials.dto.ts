@@ -7,7 +7,7 @@ export class AuthCredentialsDto {
   username: string;
 
   @IsString()
-  @MinLength(8, { message: 'Password is too short (8 characters min)' })
+  @MinLength(8, { message: 'Password is too short (50 characters min)' })
   @MaxLength(20, { message: 'Password is too long (20 characters max)' })
   password: string;
   blacklisted:boolean;
