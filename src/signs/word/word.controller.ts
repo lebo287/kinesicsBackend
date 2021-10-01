@@ -1,8 +1,13 @@
 
-import {Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common'; 
+import {Body, Controller, Delete, Get, Param, Post, Put, Res, UploadedFile, UseInterceptors } from '@nestjs/common'; 
 import { Word } from './interfaceWord/word.interface';
 import { WordService } from './wordservice/word.service';
 import { wordDTO } from './wordDTO/word.dto';
+import { Observable, of } from 'rxjs';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { v4 as uuidv4 } from 'uuid';
+import path from 'path';
 
 @Controller('word')
 export class WordController {
@@ -61,9 +66,28 @@ return this.wordService.delete(id);
 
 } 
 
- 
- 
+ @Post('upload')
+ @UseInterceptors(FileInterceptor('file',{
+     storage: diskStorage({
+         destination: './uploads',
 
+        filename: (req, file, cb) => {
+            cb(null, file.originalname)
+        }
+     })
+ }))
+ uploadFile(@UploadedFile() file): Observable<any> {
+     console.log(file);
+     
+     return of({imagePath: file.filename})
+ }
+
+ @Get(':imgpath')
+ seeUploadedFile(@Param('imgpath') file,
+ @Res() res) {
+     return res.sendFile(file, {root: 'uploads'});
+ }
+ 
 } 
 
  

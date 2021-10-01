@@ -46,5 +46,7 @@ async delete(id: string): Promise<Word>{
 
 return await this.WordModel.findByIdAndRemove(id);
 }
+
+
 }
 
