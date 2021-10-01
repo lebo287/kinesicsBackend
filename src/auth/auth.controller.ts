@@ -60,9 +60,13 @@ export class AuthController {
 
  
   @Put(':id')
-  updateProduct(@Param('id') id, @Body('blacklisted') blacklisted: any): Promise<User>{  
-      return this.authService.update(id, {blacklisted: blacklisted});
+  updateProduct(@Param('id') id, @Body() users: AuthCredentialsDto ): Promise<User>{
+      return this.authService.update(id,users);
   }
+
+
+
+
 
 
   

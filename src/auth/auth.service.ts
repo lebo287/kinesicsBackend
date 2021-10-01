@@ -45,9 +45,11 @@ export class AuthService {
   }
 
   async signIn(user: User) {
-    const payload = { username: user.username,sub: user._id,pssword: user.password,blacklisted:user.blacklisted};
+    const payload = { username: user.username,password: user.password};
     return {
       accessToken: this.jwtService.sign(payload),
+     username:user.username,
+     password:user.password,
     };
   }
 
@@ -81,9 +83,9 @@ async findApi(id: boolean): Promise<User[]>{
   return await this.userModel.find({blacklisted:id });
 }
 
-async update(id: string, user: any): Promise<User>{
-  
-  return await this.userModel.findByIdAndUpdate(id, user);
+async update(id: string, user: AuthCredentialsDto): Promise<User>{
+        
+  return await this.userModel.findByIdAndUpdate(id, user, { new: true});
 }
 
 }
