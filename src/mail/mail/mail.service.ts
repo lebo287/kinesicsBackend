@@ -6,7 +6,6 @@ export class MailService {
     constructor(private readonly mailerService: MailerService) {}
 
    sendMail(body: any): Promise<any> {
-     console.log(body);
      
     return this.mailerService
       .sendMail({
