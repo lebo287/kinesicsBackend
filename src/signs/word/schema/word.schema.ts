@@ -5,4 +5,5 @@ export const wordSchema=new mongoose.Schema({
   word:String,
   pic_gif:String,
  approved: Boolean,
+ email:String,
 })
