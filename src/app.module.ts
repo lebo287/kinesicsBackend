@@ -17,13 +17,10 @@ const uri = 'mongodb+srv://Kat:signLang@cluster0.0sytv.mongodb.net/SignLanguage?
 
 @Module({
   imports: [BlacklistedTModule,RequestedsignsModule,
-    WordModule,MongooseModule.forRoot(uri), MongooseModule.forRoot(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }),
-  
-    AuthModule, MailModule],
+    WordModule,
+    MongooseModule.forRoot(uri), 
+    AuthModule, 
+    MailModule],
   controllers: [AppController, AuthController],
   providers: [AppService],
 })
