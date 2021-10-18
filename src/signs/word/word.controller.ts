@@ -90,6 +90,11 @@ return this.wordService.delete(id);
      return res.sendFile(file, {root: 'uploads'});
  }
  
+
+ @Get('status/:status')
+ findwords(@Param('status') status): Promise<Word[]>{
+          return  this.wordService.findwords(status);
+ }
 } 
 
  
