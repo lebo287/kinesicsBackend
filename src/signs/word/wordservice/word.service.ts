@@ -48,5 +48,9 @@ return await this.WordModel.findByIdAndRemove(id);
 }
 
 
+async findwords(value: boolean): Promise<Word[]>{
+    return await this.WordModel.find({approved:value});
+  }
+
 }
 
