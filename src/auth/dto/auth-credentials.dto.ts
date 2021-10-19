@@ -9,4 +9,5 @@ export class AuthCredentialsDto {
   @MaxLength(20, { message: 'Password is too long (20 characters max)' })
   password: string;
   blacklisted:boolean;
+  admin:boolean;
 }
