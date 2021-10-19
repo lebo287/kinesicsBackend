@@ -71,6 +71,7 @@ return this.wordService.delete(id);
 
 } 
 
+
  @Post('upload')
  @UseInterceptors(FileInterceptor('file'))
  uploadFile(@UploadedFile() file: Express.Multer.File, @Body() word: wordDTO): Promise<any> {     
