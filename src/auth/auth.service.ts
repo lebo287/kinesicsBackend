@@ -19,12 +19,11 @@ export class AuthService {
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
    
-
-    const { username,password,blacklisted} = authCredentialsDto;
+    const { username,password,blacklisted, admin} = authCredentialsDto;
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new this.userModel({ username,password: hashedPassword,blacklisted});
+    const user = new this.userModel({ username,password: hashedPassword, blacklisted, admin });
 
     try {
       await user.save();
@@ -53,11 +52,6 @@ export class AuthService {
     };
   }
 
-
-
-
-
-
   async validateUser(username: string, pass: string): Promise<User> {
     const user = await this.userModel.findOne({ username });
 
@@ -84,7 +78,6 @@ async findApi(id: boolean): Promise<User[]>{
 }
 
 async update(id: string, user: AuthCredentialsDto): Promise<User>{
-        
   return await this.userModel.findByIdAndUpdate(id, user, { new: true});
 }
 
