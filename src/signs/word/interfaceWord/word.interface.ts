@@ -1,6 +1,6 @@
 export interface Word {
-    word:string,
-    pic_gif:string,
-    readonly approved: boolean;
+    word:string;
+    pic_gif:string;
+    approved: boolean;
     email:string;
 }

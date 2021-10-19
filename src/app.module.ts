@@ -9,7 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { RequestedsignsModule } from './requestedsigns/requestedsigns.module';
 import { MailModule } from './mail/mail/mail.module';
 
-const uri = 'mongodb+srv://Kat:signLang@cluster0.nzqb8.mongodb.net/SignLanguage?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://Kat:signLang@cluster0.0sytv.mongodb.net/SignLanguage?retryWrites=true&w=majority';
 
 
 
@@ -17,13 +17,10 @@ const uri = 'mongodb+srv://Kat:signLang@cluster0.nzqb8.mongodb.net/SignLanguage?
 
 @Module({
   imports: [BlacklistedTModule,RequestedsignsModule,
-    WordModule,MongooseModule.forRoot(uri), MongooseModule.forRoot(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-    }),
-  
-    AuthModule, MailModule],
+    WordModule,
+    MongooseModule.forRoot(uri), 
+    AuthModule, 
+    MailModule],
   controllers: [AppController, AuthController],
   providers: [AppService],
 })
