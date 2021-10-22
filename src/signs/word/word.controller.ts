@@ -15,7 +15,6 @@ constructor(private readonly wordService:WordService){}
 //Getting all data 
 
 @Get() 
-
 findAll(): Promise<any>{ 
 return this.wordService.findAll().then((data: any[]) => {
     const words: any[] = []
