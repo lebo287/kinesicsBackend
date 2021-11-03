@@ -14,7 +14,7 @@ import { MailController } from './mail.controller';
         port: 465,
         secure: true,
         auth: {
-          user: 'commula55@gmail.com',
+          user: 'commula55@gmail.com', 
           pass: 'Language@55',
         },
       },

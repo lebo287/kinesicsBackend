@@ -52,11 +52,19 @@ return this.wordService.create(word);
 
 @Put(':id') 
 
-updateWord(@Param('id') id, @Body() word: wordDTO): Promise<Word> 
+@UseInterceptors(FileInterceptor('file'))
+ async updateWord(@UploadedFile() file: Express.Multer.File, @Body() word: wordDTO, @Param('id') id: string): Promise<any> {     
+     const fileBase64 = file.buffer.toString('base64')
+     word.pic_gif = fileBase64;
 
-{ 
+ 
 
-return this.wordService.update(id, word); 
+return await this.wordService.update(id, word).then(data => {
+    return data;
+ }).catch(err => {
+     return err.message
+ })
+
 
 } 
 
