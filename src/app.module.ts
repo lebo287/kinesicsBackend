@@ -9,18 +9,18 @@ import { AuthModule } from './auth/auth.module';
 import { RequestedsignsModule } from './requestedsigns/requestedsigns.module';
 import { MailModule } from './mail/mail/mail.module';
 
-const uri = 'mongodb+srv://Kat:signLang@cluster0.0sytv.mongodb.net/SignLanguage?retryWrites=true&w=majority';
-
-
-
-
+const uri =
+  'mongodb+srv://Kat:signLang@cluster0.0sytv.mongodb.net/SignLanguage?retryWrites=true&w=majority';
 
 @Module({
-  imports: [BlacklistedTModule,RequestedsignsModule,
+  imports: [
+    BlacklistedTModule,
+    RequestedsignsModule,
     WordModule,
-    MongooseModule.forRoot(uri), 
-    AuthModule, 
-    MailModule],
+    MongooseModule.forRoot(uri),
+    AuthModule,
+    MailModule,
+  ],
   controllers: [AppController, AuthController],
   providers: [AppService],
 })
